@@ -1,0 +1,68 @@
+/* Styling applied to all body content */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+    color: #333;
+}
+
+/* Container box */
+.container {
+    background: white;
+    width: 600px;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header style */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Text input area */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    font-size: 1rem;
+}
+
+/* Submit button styling */
+button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Response box styling */
+.response {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-left: 4px solid #007bff;
+    border-radius: 4px;
+}
+
+.response h3 {
+    margin-top: 0;
+}

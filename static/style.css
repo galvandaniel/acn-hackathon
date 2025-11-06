@@ -54,6 +54,28 @@ button:hover {
     background-color: #0056b3;
 }
 
+/* Give those buttons with the "active" class a highlight. */
+button.profile-button.active {
+    background-color: #3269ff;
+    color: white;
+}
+
+button.profile-button {
+    width: auto;
+    background-color: #83d6ff;
+    color: white;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    margin: 5px;
+}
+
+
+button.profile-button:hover {
+    background-color: #3269ff;
+}
+
+
 /* Response box styling */
 .response {
     margin-top: 25px;
@@ -66,3 +88,4 @@ button:hover {
 .response h3 {
     margin-top: 0;
 }
+

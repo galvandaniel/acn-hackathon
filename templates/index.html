@@ -7,22 +7,41 @@
 
     <!-- Link to style sheet, direct URL handled by Flask. -->
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <style>
-        body { font-family: sans-serif; margin: 40px; }
-        textarea { width: 100%; height: 100px; }
-        .response { margin-top: 20px; background: #f3f3f3; padding: 10px; }
-    </style>
-
 </head>
 <body>
     <div class="container">
         <h1>Demo</h1>
+
+        <!-- Generate a button for all pre-defined user profiles which, upon
+             submission, has the value of the profile name. -->
         <form method="POST">
-            <textarea name="user_input" placeholder="Enter your text here..."></textarea><br><br>
-            <button type="submit">Submit</button>
+            <h3>Select a profile:</h3>
+            {% for profile in all_profiles.values() %}
+                <button type="submit" name="profile" value="{{ profile.name }}" class="profile-button {% if selected_profile is not none and selected_profile.name == profile.name %} active {% endif %}">
+                    {{profile.name}}
+                </button>
+            {% endfor %}
+            <input type="hidden" name="action" value="select_profile">
         </form>
 
-        {% if response %}
+        <!-- When a user profile has been selected, welcome them and print
+             some user data. -->
+        {% if selected_profile is not none %}
+            <div class="profile-info">
+                <h3>Welcome back, {{ selected_profile.name }}!</h3>
+                <p>You've previously shopped <strong> {{selected_profile.aesthetic}}</strong> styles!</p>
+            </div>
+
+            <form method="POST">
+                <input type="hidden" name="selected_profile" value="{{ selected_profile.name }}">
+                <input type="hidden" name="action" value="submit_input">
+
+                <textarea name="user_input" placeholder="Enter your text here..."></textarea><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        {% endif %}
+
+        {% if response is not none %}
         <div class="response">
             <h3>Response:</h3>
             <p>{{ response }}</p>

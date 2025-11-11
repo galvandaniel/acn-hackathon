@@ -205,3 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Locally downloaded clothing images + captions.
+Data/captions.pkl
+Data/uniqlo_downloaded.csv
+Data/images/

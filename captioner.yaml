@@ -1,0 +1,9 @@
+orchestrator:
+  agent_list:
+    - agent_name: "Image Understanding Agent"
+  
+utility_agents:
+  - agent_class: ImageUnderstandingAgent
+    agent_name: Image Understanding Agent
+    agent_description: This agent can describe an image in natural language.
+    config: {}

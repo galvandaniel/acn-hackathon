@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Re-show the user's previous election from index.html without letting
+     the button be selectable. -->
+<section class="welcome-section">
+    <h2>Welcome back, {{ session["current_profile"]["name"] }}!</h2>
+    <p>
+        I saw that you previously bought a {{ session["current_profile"]["purchase_history"][0]["item"] }}!
+        Would you like to provide feedback on it?
+    </p>
+    
+    {% if not session["gave_feedback"] %}
+    <div class="button-group">
+        <button type="button">Feedback</button>
+        <button type="button" class="btn btn-selected-no">Not Now</button>
+    </div>
+    {% else %}
+    <div class="button-group">
+        <button type="button" class="btn btn-selected-yes">Feedback</button>
+        <button type="button">Not Now</button>
+    </div>
+    {% endif %}
+</section>
+
+<!-- Show an outfit suggestion with options to go to the product page or
+     swap to a different item. -->
+<section class="suggestion-section">
+    
+    <h3>Here is a suggestion of an outfit in your {{ session["current_profile"]["aesthetic"] }} style. What do you think?</h3>
+    <div class="suggestion-layout">
+        <div class="suggestion-gallery">
+            <figure class="item-card">
+                <img src="{{ url_for('static', filename='images/black-tank.png') }}">
+                <form method="POST">
+                    <button type="submit" name="swap" value="tops">Swap</button>
+                </form>
+                <a href="https://google.com">
+                    <button type="submit" class="btn btn-add">Add to Cart</button>
+                </a>
+            </figure>
+
+            <figure class="item-card">
+                <img src="{{ url_for('static', filename='images/chiffon-skirt.png') }}">
+                <form method="POST">
+                    <button type="submit" name="swap" value="bottoms">Swap</button>
+                </form>
+                <a href="https://google.com">
+                    <button type="submit" class="btn btn-add">Add to Cart</button>
+                </a>
+            </figure>
+        </div>
+
+        <!-- Display mannequin with chosen outfit here. -->
+        <figure class="styled-model">
+            <img src="{{ url_for('static', filename='images/styled-outfit.png') }}">
+        </figure>
+    </div>
+    
+    <!-- Prompt user if they want a completely new outfit suggestion. -->
+    <div class="outfit-prompt">
+        <h3>Would you like a new outfit suggestion?</h3>
+        <div class="button-group">
+            <form method="POST">
+                <button type="submit" name="new_outfit" value="yes" class="btn btn-yes">Yes</button>
+            </form>
+            <a href="https://www.uniqlo.com/us/en/women">
+                <button type="submit" class="btn btn-no">No</button>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

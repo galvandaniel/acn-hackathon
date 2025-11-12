@@ -179,7 +179,7 @@ def get_preference_description(profile: UserProfile) -> str:
     return generate_response(query=profile.model_dump_json(indent=2), system_prompt=system_prompt)
 
 
-def get_recommendation(user: UserProfile, top_n: int=3) -> dict[str, list[int]]:
+def get_recommendation(user: UserProfile, top_n: int=5) -> dict[str, list[int]]:
     """
     Get a set of clothing recommendations for the passed user, obtained as
     a list of size `top_n` clothing identifier codes.

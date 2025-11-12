@@ -210,3 +210,4 @@ __marimo__/
 Data/captions.pkl
 Data/uniqlo_downloaded.csv
 Data/images/
+static/images/

@@ -17,8 +17,8 @@ from io import BytesIO
 
 CATALOG_PATH: str = os.path.join("Data", "uniqlo_catalog_updated.csv")
 DOWNLOADED_PATH: str = os.path.join("Data", "uniqlo_downloaded.csv")
-CLOTHING_IMAGES_PATH: str = os.path.join("Data", "images", "clothes")
-MODEL_IMAGES_PATH: str = os.path.join("Data", "images", "models")
+CLOTHING_IMAGES_PATH: str = os.path.join("static", "images", "clothes")
+MODEL_IMAGES_PATH: str = os.path.join("static", "images", "models")
 
 
 def save_image_data() -> None:

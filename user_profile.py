@@ -23,20 +23,20 @@ ALL_USER_DICTS: list[dict[str, any]] = [
         "size": "small",
         "budget": 150,
         "event_type": ["corporate_events", "brunches"],
-        "browsing_data": ["blazers", "neutral_basics", "capsule_wardrobe"],
-        "purchase_history": [{"item": "wool_coat", "price": 210}, {"item": "silk_blouse", "price": 95}, {"item": "tailored_trousers", "price": 180}],
+        "browsing_data": ["blazers", "neutral basics", "capsule wardrobe"],
+        "purchase_history": [{"item": "wool coat", "price": 210}, {"item": "silk blouse", "price": 95}, {"item": "tailored trousers", "price": 180}],
         "preferences": ["sustainable_fabrics", "neutral_tones"]
     },
     {
         "name": "Leo Nguyen",
         "age": 29,
         "gender": "male",
-        "aesthetic": "smart_casual",
+        "aesthetic": "smart casual",
         "size": "medium",
         "budget": 120,
         "event_type": ["work_dinners", "travel"],
         "browsing_data": ["polos", "chinos", "travel_blazers"],
-        "purchase_history": [{"item": "navy_chinos", "price": 80}, {"item": "linen_shirt", "price": 65}, {"item": "leather_belt", "price": 40}],
+        "purchase_history": [{"item": "linen shirt", "price": 65}, {"item": "navy chinos", "price": 80}, {"item": "leather belt", "price": 40}],
         "preferences": ["slim_fits", "navy_white_palette"]
     }
 ]

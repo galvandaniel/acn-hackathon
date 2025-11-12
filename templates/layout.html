@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Closet Curator</title>
+    <link href="https://fonts.googleapis.com/css?family=Afacad&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Cosmic Closet Curator</h1>
+    </header>
+
+    <!-- Let content be implemented by files which inherit this one. -->
+    <main class="app-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Secret button to switch profiles between Ava and Leo -->
+    <footer class="app-footer">
+        <a href="#" class="chat-link">
+            Find your fit with Cosmic Closet Curator!
+        </a>
+        <form method="POST">
+            <input type="image" src="{{ url_for('static', filename='images/logo.png') }}" class="footer-logo">
+            <input type="hidden" name="do_profile_switch" value="yes"> 
+        </form>
+    </footer>
+</body>
+</html>

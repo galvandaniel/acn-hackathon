@@ -1,0 +1,271 @@
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* General text input styling */
+textarea {
+  font-family: 'Afacad', sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  width: 100%;
+  max-width: 75rem;
+  box-sizing: border-box;
+  resize: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #6a5acd;
+  box-shadow: 0 0 4px rgba(106, 90, 205, 0.3);
+}
+
+body {
+  background-color: #000124;
+  font-family: Afacad;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  font-family: Afacad;
+}
+
+/* Main layout */
+.app-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+
+/* Ensure sections don’t resize vertically based on content */
+section {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  overflow: hidden;
+  min-height: 120px;
+}
+
+
+.welcome-section h2 {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+
+.welcome-section p {
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+
+/* Suggestion section layout */
+.suggestion-section {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.suggestion-section h3 {
+  grid-column: span 2;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Dedicated class for aligning model + suggested items horizontally */
+.suggestion-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Styled model on right */
+.styled-model {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.styled-model img {
+  width: 50%;
+  max-width: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Class for gallery of suggested items aligned horizontally. */
+.suggestion-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 500px;
+  margin-left: 100px;
+}
+
+/* Class for one suggested item, aligned vertically with buttons. */
+.item-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+}
+
+
+/* Image styling */
+.item-card img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+
+/* Centered buttons below image in item card */
+.item-card button {
+  padding: 0.5rem 1rem;
+  margin-top: 1.0rem;
+  transition: 0.2s ease-in-out;
+  width: 6.8rem;
+  height: 2.5rem;
+}
+
+/* Place text and button prompting for another outfit beside each other. */
+.outfit-prompt {
+  display: flex;
+  justify-content: center; 
+  align-items: center;         
+  gap: 24rem;                 
+  margin-top: 2rem;
+  flex-wrap: wrap;            
+}
+
+.outfit-prompt button {
+  margin-left: 1rem;
+  width: 8rem;
+  height: 2.1rem;
+}
+
+.item-card .btn-add {
+  background-color: #1dbd45;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+button {
+  font-family: "Afacad", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid #000;
+  background-color: #b6b4b4;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  /* Buttons remain consistent size*/
+  flex-shrink: 0;
+  min-width: 80px;
+  text-align: center;
+}
+
+
+button:hover {
+  filter: brightness(0.9);
+}
+
+button.btn-no:hover {
+  background-color: rgba(255, 0, 0, 0.692);
+}
+
+button.btn-yes:hover {
+  background-color: #1dbd45;
+}
+
+button.btn-selected-yes {
+  background-color: #1dbd45;
+}
+
+button.btn-selected-no {
+  background-color: rgba(255, 0, 0, 0.692);
+}
+
+
+.goodbye-section {
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.app-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 1200px;
+  gap: 0.5rem;
+}
+
+.chat-link {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.chat-link:hover {
+  text-decoration: underline;
+}
+
+.footer-logo {
+  width: 100px;
+  height: auto;
+}

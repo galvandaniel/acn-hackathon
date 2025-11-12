@@ -31,21 +31,21 @@
     <div class="suggestion-layout">
         <div class="suggestion-gallery">
             <figure class="item-card">
-                <img src="{{ url_for('static', filename='images/black-tank.png') }}">
+                <img src="{{ url_for('static', filename='images/clothes/' + tops_filename) }}">
                 <form method="POST">
                     <button type="submit" name="swap" value="tops">Swap</button>
                 </form>
-                <a href="https://google.com">
+                <a href={{ tops_link }}>
                     <button type="submit" class="btn btn-add">Add to Cart</button>
                 </a>
             </figure>
 
             <figure class="item-card">
-                <img src="{{ url_for('static', filename='images/chiffon-skirt.png') }}">
+                <img src="{{ url_for('static', filename='images/clothes/' + bottoms_filename) }}">
                 <form method="POST">
                     <button type="submit" name="swap" value="bottoms">Swap</button>
                 </form>
-                <a href="https://google.com">
+                <a href={{ bottoms_link }}>
                     <button type="submit" class="btn btn-add">Add to Cart</button>
                 </a>
             </figure>
@@ -53,7 +53,7 @@
 
         <!-- Display mannequin with chosen outfit here. -->
         <figure class="styled-model">
-            <img src="{{ url_for('static', filename='images/styled-outfit.png') }}">
+            <img src="{{ url_for('static', filename='images/models/' + bottoms_filename) }}">
         </figure>
     </div>
     

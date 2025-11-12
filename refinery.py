@@ -75,8 +75,8 @@ def setup_orchestrators() -> None:
     """
     Setup all orchestrator projects as defined in .yaml config files.
 
-    This function should be called before any other function in the refinery
-    module is called.
+    This function should be called before any asynchronous function in
+    this module is called.
     """
     if DISTILLER_CLIENT is None:
         print(MISSING_CLIENT_WARN)
@@ -144,7 +144,8 @@ def generate_response(query: str, system_prompt: str="You are a helpful assisant
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": query}
         ],
-        model=LANGUAGE_MODEL
+        model=LANGUAGE_MODEL,
+        timeout=120
     )
     return response.choices[0].message.content
 
@@ -176,13 +177,22 @@ def get_preference_description(profile: UserProfile) -> str:
         {json.dumps(UserProfile.model_json_schema()["properties"], indent=2)}
     """
 
+    # Quick patch for live-demo purposes to get around AI Refinery being down...
+    # Remove for dynamic profile generation.
+    if profile.name == "Leo Nguyen":
+        return "Leo Nguyen is looking for an outfit with a smart casual aesthetic, appropriate for the work environment. He has a preference for slim-fitting navy whites, though other colors are likely to match his style too, such as light gray and beige."
+    if profile.name == "Ava Chen":
+        return "Ava Chen is looking for an outfit with a minimalist aesthetic, refined with pieces that balance sophistication and simplicity. She values sustainable fabrics and neutral tones such as ivory, taupe, and charcoal. For upcoming corporate events and brunches, she would likely appreciate structured yet effortless pieces such as a light beige tailored blazer, a crisp organic-cotton shirt, or wide-leg trousers in stone or black."
     return generate_response(query=profile.model_dump_json(indent=2), system_prompt=system_prompt)
+    
+
 
 
 def get_recommendation(user: UserProfile, top_n: int=5) -> dict[str, list[int]]:
     """
     Get a set of clothing recommendations for the passed user, obtained as
-    a list of size `top_n` clothing identifier codes.
+    a list of size `top_n` indices into the dataframe given by 
+    `catalog_data.get_downloaded_data()`.
 
     This function is dependent on there existing locally downloaded data
     as created by this module, and the `catalog_data.py` module.
